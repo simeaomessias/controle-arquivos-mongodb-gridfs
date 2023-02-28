@@ -1,0 +1,47 @@
+<div class="px-3">
+    <div class="container mt-3 border border-dark rounded m-auto px-0 py-0" style="min-width: 280px; max-width: 600px">
+        <h5 class="text-center bg-info border-bottom border-dark rounded-top py-0"><b>DOCUMENTOS CADASTRADOS</b></h5>
+        <div class="px-2" style="max-height: 450px; overflow-y: auto;">
+            <table class="table table-hover mt-0">
+                <tbody>
+
+                    {{#if listaDocumentos}}
+                        {{#if listaDownloadOn}}
+                            {{#each listaDownloadOn}}
+                                <tr>
+                                    <td class="colunaNome">
+                                        <b>{{nome}}</b> <br>
+                                        {{descricao}}<br>
+                                    </td>
+                                    <td class="colunaNome">
+                                        <button type="button" class="btn btn-success border border-dark" style="width: 100px;" onclick="window.location.href = '/usuario/download/{{_id}}'">
+                                            <span class="h6">Download</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            {{/each}}
+                        {{/if}}    
+                        {{#if listaDownloadOff}}
+                            {{#each listaDownloadOff}}
+                                <tr>
+                                    <td class="colunaNome">
+                                        <b>{{nome}}</b> <br>
+                                        {{descricao}}<br>
+                                    </td>
+                                    <td class="colunaNome">
+                                        {{!-- <button type="button" disabled class="btn btn-danger border border-dark" style="width: 100px;" onclick="window.location.href = ''">
+                                            <span class="h6">Download</span>
+                                        </button> --}}
+                                    </td>
+                                </tr>
+                            {{/each}}
+                        {{/if}}    
+                    {{else}}
+                        <p class='text-danger text-center h5'><b>Não existem documentos cadastrados.</b></p>
+                    {{/if}}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

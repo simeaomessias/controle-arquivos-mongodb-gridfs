@@ -60,11 +60,12 @@ var store = MongoStore.create({
     mongoUrl: mongoUri
 })
 
-
 // Express-session + Passport
 import session from 'express-session'
 import passport from "passport"
 import passportConfig from './src/config/auth.js'
+passportConfig(passport)
+
 import MongoStore from 'connect-mongo'
 
 app.use(session({
@@ -78,10 +79,16 @@ app.use(session({
         httpOnly: true
     }
 }))
+app.use(passport.initialize())
+app.use(passport.session())
 
 // Middlewares
 import middleware from './src/middlewares/middleware.js'
 app.use(middleware.global)
+
+// Helpers
+import eAdmin from './src/helpers/eAdmin.js'
+import eUsuario from './src/helpers/eUsuario.js'
 
 // Routes
 import routes from './src/routes/routes.js'

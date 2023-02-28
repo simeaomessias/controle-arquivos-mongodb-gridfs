@@ -1,0 +1,29 @@
+<div class="px-3">
+    <div class="container px-0 mt-3" style="min-width: 280px; max-width: 600px">
+        <button type="button" class="btn btn-info border border-dark" style="width: 170px;" onclick="window.location.href = '/admin/cadastrar-documento'">
+            <span class="h6">Novo documento</span>
+        </button>
+    </div>
+    <div class="container mt-3 border border-dark rounded m-auto px-0 py-0" style="min-width: 280px; max-width: 600px">
+        <h5 class="text-center bg-info border-bottom border-dark rounded-top py-0"><b>DOCUMENTOS CADASTRADOS</b></h5>
+        <div class="px-2" style="max-height: 450px; overflow-y: auto;">
+            <table class="table table-hover mt-0">
+                <tbody>
+                    {{#if listaDocumentos}}
+                        {{#each listaDocumentos}}
+                            <tr onclick="location.href='/admin/editar-documento/{{_id}}'">
+                                <td class="colunaNome">
+                                    <b>{{nome}}</b> <br>
+                                    {{descricao}}<br>
+                                    ({{status}})
+                                </td>
+                            </tr>
+                        {{/each}}
+                    {{else}}
+                        <p class='text-danger text-center h5'><b>Não existem documentos cadastrados.</b></p>
+                    {{/if}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
