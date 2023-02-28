@@ -35,14 +35,38 @@ mongoose.connect(mongoUri).then( () => {
     console.log(`BANCO DE DADOS: A conexão com o MongoDB não foi realizada! ERRO: ${erro}`)
 })
 
+// Mongodb
+import mongo from 'mongodb';
+
+var db = mongoose.connection
+const bucket = new mongo.GridFSBucket(db);
+
+// Multer-Gridfs-Storage (para fazer upload e salvar arquivos no banco de dados)
+import multer from 'multer'
+import {GridFsStorage} from 'multer-gridfs-storage'
+const storage = new GridFsStorage({
+    url: mongoUri,
+    file: (req, file) => {
+        return {
+            filename: `_*_*_${file.originalname}`
+            // _*_*_ marcador para buscar o índice em fs.files no momento de salvar em "Documentos"
+        }
+    }
+});
+const upload = multer({ storage });
+
 // Connect-mongo
 var store = MongoStore.create({
     mongoUrl: mongoUri
 })
 
-// Express-session
+
+// Express-session + Passport
 import session from 'express-session'
+import passport from "passport"
+import passportConfig from './src/config/auth.js'
 import MongoStore from 'connect-mongo'
+
 app.use(session({
     name: process.env.KEY,
     secret: process.env.SECRET,
