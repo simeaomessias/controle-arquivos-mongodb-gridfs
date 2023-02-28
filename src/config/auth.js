@@ -27,9 +27,17 @@ export default (passport) => {
         done(null, usuario.id)
     })
     
-    passport.deserializeUser((id, done) => {
+    passport.deserializeUser( async (id, done) => {
+        /*
         Usuario.findById (id, (erro, usuario) => {
             done(erro, usuario)      
         })
+        */
+        let usuario = await Usuario.findById(id)
+        let erro = ""
+        if (!usuario) {
+            erro = "Não foi encontrado usuário com o id passado"
+        }
+        done(erro, usuario)
     })
 }

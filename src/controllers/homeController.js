@@ -7,8 +7,6 @@ import passport from "passport"
 import passportConfig from '../config/auth.js'
 passportConfig(passport)
 
-
-// Home
 const telaLogin = (req, res) => {
     res.render('login', {layout: 'mainGeral'})
 }
