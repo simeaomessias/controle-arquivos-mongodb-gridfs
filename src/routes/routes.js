@@ -29,6 +29,7 @@ import eUsuario from '../helpers/eUsuario.js'
 // Controllers
 import homeController from '../controllers/homeController.js';
 import adminController from '../controllers/adminController.js';
+import usuarioController from '../controllers/usuarioController.js';
 
 // Home - Login
 router.get('/', homeController.telaLogin)
@@ -49,5 +50,10 @@ router.get('/admin/cadastrar-documento', eAdmin, adminController.telaCadastroDoc
 router.post('/admin/cadastrar-documento', eAdmin, upload.single('file'), adminController.cadastrarDocumento)
 router.get('/admin/editar-documento/:id', eAdmin, adminController.telaEdicaoDocumento)
 router.post('/admin/editar-documento/:id', eAdmin, adminController.editarDocumento)
+
+// Usuário - Documentos
+router.get('/usuario', eUsuario, usuarioController.usuarioHome)
+router.get('/usuario/listar-documentos', eUsuario, usuarioController.listarDocumentos)
+router.get('/usuario/download/:id', eUsuario, usuarioController.download)
 
 export default router
