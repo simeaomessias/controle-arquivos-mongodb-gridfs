@@ -15,7 +15,7 @@
   1. Tem acesso à lista de arquivos cadastrados.
   2. Pode realizar o download de determinado arquivo apenas uma vez.
     
-## Tecnologias que serão utilizadas
+## Tecnologias utilizadas
 - HTML5 + CSS3 + JAVASCRIPT
 - NODE.JS + MONGODB
 - BIBLIOTECAS<br>
