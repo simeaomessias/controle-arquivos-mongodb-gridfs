@@ -26,16 +26,22 @@
       
 ## Como acessar
 - **Deploy** <br>
-  O link será disponibilizado aqui!
+  O link será disponibilizado aqui! <br>
+  Credenciais do Administrador <br>
+  *E-mail: admin@admin.com / Senha: admin@admin*
 - **Para instalar e executar o projeto** <br>
   1. Fazer clone deste repositório. <br>
-     `https://github.com/simeaomessias/miniredesocial.git`
+     `https://github.com/simeaomessias/controle-arquivos-mongodb-gridfs`
   2. Certificar que o npm está instalado. <br>
      O npm pode ser obtido instalando o [Node](https://nodejs.org/en/).
   3. Configurar os valores da seguintes variaveis de ambiente:<br>
-     - A lista de variáveis será disponibilizada aqui. <br>
+     - KEY: nome do cookie para o express-session. <br>
+     - SECRET: chave secreta para o express-session <br>
+     - MONGOURI: formato URI da string de conexão do MongoDB <br>
   4. Executar o comando *npm start*. <br>
-     Acesse http://localhost:8081 para visualizar no navegador.
+     Acesse http://localhost:8081 para visualizar no navegador. <br>
+
+## Imagens
 
 ## Autor
 https://github.com/simeaomessias
