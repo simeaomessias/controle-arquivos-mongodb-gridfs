@@ -26,7 +26,7 @@ dotenv.config()
 // Mongoose
 import mongoose from 'mongoose'
 mongoose.set('strictQuery', false);
-const mongoUri = process.env.MONGOURI
+global.mongoUri = process.env.MONGOURI
 mongoose.Promise = global.Promise
 mongoose.connect(mongoUri).then( () => {
     console.log("BANCO DE DADOS: Conectado.")
