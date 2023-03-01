@@ -38,6 +38,7 @@ mongoose.connect(mongoUri).then( () => {
 // Mongodb
 import mongo from 'mongodb';
 
+/*
 var db = mongoose.connection
 const bucket = new mongo.GridFSBucket(db);
 
@@ -54,6 +55,7 @@ const storage = new GridFsStorage({
     }
 });
 const upload = multer({ storage });
+*/
 
 // Connect-mongo
 var store = MongoStore.create({
